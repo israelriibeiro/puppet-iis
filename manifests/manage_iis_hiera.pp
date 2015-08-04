@@ -9,7 +9,7 @@ class iis::manage_iis_hiera(
 
   if ( $iis_data_hash != {} ){
     validate_hash($iis_data_hash)
-    create_resource($iis_data_hash['resource'],$iis_data_hash['hash_resource'])
+    create_resources($iis_data_hash['resource'],$iis_data_hash['hash_resource'])
   }
   
 }
