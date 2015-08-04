@@ -74,3 +74,17 @@ Host header and ip address can also be supplied.
       ip_address  => '192.168.0.1',
       host_header => 'mysite.com',
     }
+
+
+Add hiera support:
+Exemplo of  yaml hiera file:
+--
+---
+iis::manage_iis_hiera::iis_data_hash:
+  resource: iis::manage_site
+  hash_resource:
+   www.teste7.com.br:
+    site_path: 'C:\inetpub\wwwroot\teste7'
+    port: 80
+    ip_address: '*'
+    app_pool: 'DefaultAppPoll'
