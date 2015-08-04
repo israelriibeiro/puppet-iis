@@ -78,7 +78,7 @@ Host header and ip address can also be supplied.
 
 Add hiera support:
 Exemplo of  yaml hiera file:
---
+```
 ---
 iis::manage_iis_hiera::iis_data_hash:
   resource: iis::manage_site
@@ -88,3 +88,4 @@ iis::manage_iis_hiera::iis_data_hash:
     port: 80
     ip_address: '*'
     app_pool: 'DefaultAppPoll'
+```    
