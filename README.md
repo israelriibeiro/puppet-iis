@@ -80,12 +80,15 @@ Add hiera support:
 Exemplo of  yaml hiera file:
 ```
 ---
-iis::manage_iis_hiera::iis_data_hash:
-  resource: iis::manage_site
-  hash_resource:
-   www.teste7.com.br:
-    site_path: 'C:\inetpub\wwwroot\teste7'
+---
+iis::manage_iis_hiera::manage_app_pool_hash
+  Pool2:
+    enable_32_bit: true
+    managed_runtime_version: 'v4.0'
+iis::manage_iis_hiera::manage_site_hash
+   www.teste8.com.br:
+    site_path: 'C:\inetpub\wwwroot\teste8'
     port: 80
     ip_address: '*'
-    app_pool: 'DefaultAppPoll'
+    app_pool: 'Pool2'
 ```    
