@@ -76,18 +76,30 @@ Host header and ip address can also be supplied.
     }
 
 
+Hiera
+--
 Add hiera support:
+You have  to add to your manifest class { 'iis::iis_hiera': }
 Exemplo of  yaml hiera file:
 ```
 ---
-iis::manage_iis_hiera::manage_app_pool_hash:
-  Pool2:
-    enable_32_bit: true
-    managed_runtime_version: 'v4.0'
-iis::manage_iis_hiera::manage_site_hash:
-   www.teste8.com.br:
-    site_path: 'C:\inetpub\wwwroot\teste8'
-    port: 80
-    ip_address: '*'
-    app_pool: 'Pool2'
+iis::iis_hiera::app_pool_hash:
+ DefaultAppPool:
+  enable_32_bit: true
+  managed_runtime_version: 'v4.0'
+iis::iis_hiera::site_hash:
+  www.teste8.com.br:
+   site_name: 'www.teste8.com.br'
+   host_header: 'www.teste8.com.br'
+   site_path: 'C:\inetpub\wwwroot\teste8'
+   port: 80
+   ip_address: '*'
+   app_pool: 'DefaultAppPool'
+  www.teste9.com.br:
+   site_name: 'www.teste9.com.br'
+   host_header: 'www.teste9.com.br'
+   site_path: 'C:\inetpub\wwwroot\teste9'
+   port: 80
+   ip_address: '*'
+   app_pool: 'DefaultAppPool'
 ```    
